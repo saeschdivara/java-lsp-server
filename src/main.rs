@@ -23,6 +23,7 @@ async fn main() {
 
     let (service, socket) = LspService::build(|client| Backend {
         client,
+        root_path: std::env::current_dir().unwrap(),
     })
         .finish();
 
